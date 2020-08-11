@@ -201,6 +201,7 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 alias please='sudo $(history -p \!\!)'
+alias python='python3'
 
 # Show all logs in /var/log
 alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
@@ -670,3 +671,5 @@ function __setprompt
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 PROMPT_COMMAND='__setprompt'
+export PATH=$PATH:~/.cargo/bin
+bind '"\C-H":backward-kill-word'
