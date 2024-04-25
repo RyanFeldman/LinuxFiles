@@ -92,6 +92,8 @@ onetest() {
 
 alias builddev='cargo build --features dev'
 
+alias cdgw='cd dev/Azure-IoT-Platform-Hub/apps/gateway'
+
 # Alias's to mount ISO files
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
 # umount /home/NAMEOFISO.iso
