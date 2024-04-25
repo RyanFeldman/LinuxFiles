@@ -81,8 +81,8 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 alias web='cd /var/www/html'
 
 alltests() {
-	echo 'cargo nextest run --features testing --failure-output never --no-fail-fast --workspace'
-	cargo nextest run --features testing --failure-output never --no-fail-fast --workspace
+	echo 'cargo nextest run --features testing --failure-output never --no-fail-fast --workspace --retries 2'
+	cargo nextest run --features testing --failure-output never --no-fail-fast --workspace --retries 2
 }
 
 onetest() {
