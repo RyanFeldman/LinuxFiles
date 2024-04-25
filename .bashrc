@@ -80,6 +80,18 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Alias's to change the directory
 alias web='cd /var/www/html'
 
+alltests() {
+	echo 'cargo nextest run --features testing --failure-output never --no-fail-fast --workspace'
+	cargo nextest run --features testing --failure-output never --no-fail-fast --workspace
+}
+
+onetest() {
+	echo "cargo nextest run --workspace --features testing $@";
+	cargo nextest run --workspace --features testing "$@";
+}
+
+alias builddev='cargo build --features dev'
+
 # Alias's to mount ISO files
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
 # umount /home/NAMEOFISO.iso
