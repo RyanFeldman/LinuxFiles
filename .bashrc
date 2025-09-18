@@ -223,6 +223,10 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 # SHA1
 alias sha1='openssl sha1'
 
+alias gs="git status"
+alias gd="git diff"
+git config --global alias.acp '!f() { git add -A && git commit -m "$@" && git push; }; f'
+
 #######################################################
 # SPECIAL FUNCTIONS
 #######################################################
