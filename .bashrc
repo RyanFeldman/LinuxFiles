@@ -90,6 +90,12 @@ onetest() {
 	cargo nextest run --workspace --features testing "$@";
 }
 
+hub() {
+    local hostname="${1}.azure-devices.net"
+    echo "dig +short $hostname"
+    dig +short "$hostname"
+}
+
 alias builddev='cargo build --features dev'
 
 alias cdgw='cd ~/dev/Azure-IoT-Platform-Hub/apps/gateway'
@@ -591,6 +597,11 @@ trim()
 	echo -n "$var"
 }
 
+if [[ $- = *i* ]]
+then
+	bind '"\C-H":backward-kill-word'
+fi
+
 #######################################################
 # Set the ultimate amazing command prompt
 #######################################################
@@ -688,6 +699,6 @@ function __setprompt
 	# PS4 is used for tracing a script in debug mode
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
+
 PROMPT_COMMAND='__setprompt'
 export PATH=$PATH:~/.cargo/bin
-bind '"\C-H":backward-kill-word'
