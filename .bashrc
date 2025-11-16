@@ -237,6 +237,13 @@ git config --global alias.acp '!f() { git add -A && git commit -m "$@" && git pu
 # SPECIAL FUNCTIONS
 #######################################################
 
+# List recently committed local git branches
+# Usage: lb [number] - defaults to 8 branches
+lb() {
+    local count=${1:-8}
+    git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' --count="$count"
+}
+
 # Use the best version of pico installed
 edit ()
 {
@@ -673,8 +680,13 @@ function __setprompt
 	fi
 
 	# Date
-	PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a) $(date +%b-'%-m')" # Date
-	PS1+="${LIGHTCYAN} $(date +'%-I':%M:%S%P)\[${DARKGRAY}\])-" # Time
+	if date +%-m &>/dev/null; then
+		PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a) \$(date +%b-%-m)" # Date
+		PS1+="\[${LIGHTCYAN}\] \$(date +%-I:%M:%S%P)\[${DARKGRAY}\])-" # Time
+	else
+		PS1+="\[${DARKGRAY}\](\[${CYAN}\]\$(date +%a) \$(date +%b-%m)" # Date
+		PS1+="\[${LIGHTCYAN}\] \$(date +%I:%M:%S%P)\[${DARKGRAY}\])-" # Time
+	fi
 
 	PS1+="(\[${LIGHTRED}\]\u"
 
