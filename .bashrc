@@ -98,7 +98,7 @@ hub() {
 
 alias builddev='cargo build --features dev'
 
-alias cdgw='cd ~/dev/Azure-IoT-Platform-Hub/apps/gateway'
+alias cdgw='cd ~/dev/platform-hub/Azure-IoT-Platform-Hub/apps/gateway'
 
 # Alias's to mount ISO files
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
