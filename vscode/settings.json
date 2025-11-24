@@ -1,0 +1,13 @@
+{
+    "git.openRepositoryInParentFolders": "never",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.startupEditor": "none",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "docker.extension.enableComposeLanguageServer": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "lldb.suppressUpdateNotifications": true,
+    "markdown-preview-enhanced.mermaidTheme": "dark",
+    "markdown-preview-enhanced.codeBlockTheme": "atom-dark.css",
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "editor.formatOnSave": true
+}
