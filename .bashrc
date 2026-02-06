@@ -81,13 +81,13 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 alias web='cd /var/www/html'
 
 alltests() {
-	echo 'cargo nextest run --features testing --failure-output never --no-fail-fast --workspace --retries 4'
-	cargo nextest run --features testing --failure-output never --no-fail-fast --workspace --retries 4
+	echo 'cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4'
+	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4
 }
 
 onetest() {
-	echo "cargo nextest run --workspace --features testing $@";
-	cargo nextest run --workspace --features testing "$@";
+	echo "cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing $@";
+	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing "$@";
 }
 
 hub() {
@@ -712,5 +712,5 @@ function __setprompt
 	PS4='\[${DARKGRAY}\]+\[${NOCOLOR}\] '
 }
 
-PROMPT_COMMAND='__setprompt'
+PROMPT_COMMAND='history -a; history -n; __setprompt'
 export PATH=$PATH:~/.cargo/bin
