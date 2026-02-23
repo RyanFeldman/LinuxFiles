@@ -100,6 +100,8 @@ alias builddev='cargo build --features dev'
 
 alias cdgw='cd ~/dev/platform-hub/Azure-IoT-Platform-Hub/apps/gateway'
 
+alias s_client_dbg="openssl s_client -keylogfile /mnt/c/temp/keys.log"
+
 # Alias's to mount ISO files
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
 # umount /home/NAMEOFISO.iso
