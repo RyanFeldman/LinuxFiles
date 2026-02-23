@@ -80,28 +80,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Alias's to change the directory
 alias web='cd /var/www/html'
 
-alltests() {
-	echo 'cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4'
-	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4
-}
-
-onetest() {
-	echo "cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing $@";
-	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing "$@";
-}
-
-hub() {
-    local hostname="${1}.azure-devices.net"
-    echo "dig +short $hostname"
-    dig +short "$hostname"
-}
-
-alias builddev='cargo build --features dev'
-
-alias cdgw='cd ~/dev/platform-hub/Azure-IoT-Platform-Hub/apps/gateway'
-
-alias s_client_dbg="openssl s_client -keylogfile /mnt/c/temp/keys.log"
-
 # Alias's to mount ISO files
 # mount -o loop /home/NAMEOFISO.iso /home/ISOMOUNTDIR/
 # umount /home/NAMEOFISO.iso
@@ -234,6 +212,28 @@ alias sha1='openssl sha1'
 alias gs="git status"
 alias gd="git diff"
 git config --global alias.acp '!f() { git add -A && git commit -m "$@" && git push; }; f'
+git config --global alias.recent '!git branch --sort=-committerdate --format="%(refname:short)|%(committerdate:relative)" | head -10 | column -t -s "|"'
+
+alltests() {
+	echo 'cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4'
+	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing --failure-output never --no-fail-fast --retries 4
+}
+
+onetest() {
+	echo "cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing $@";
+	cargo nextest run --package gw-http --package gw-mqtt3 --package gw-amqp --features testing "$@";
+}
+
+hub() {
+    local hostname="${1}.azure-devices.net"
+    echo "dig +short $hostname"
+    dig +short "$hostname"
+}
+
+alias builddev='cargo build --features dev'
+alias cdgw='cd ~/dev/platform-hub/Azure-IoT-Platform-Hub/apps/gateway'
+
+alias s_client_dbg="openssl s_client -keylogfile /mnt/c/temp/keys.log"
 
 #######################################################
 # SPECIAL FUNCTIONS
