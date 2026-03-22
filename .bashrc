@@ -1,5 +1,5 @@
 #!/bin/bash
-iatest=$(expr index "$-" i)
+case "$-" in *i*) iatest=1;; *) iatest=0;; esac
 
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
